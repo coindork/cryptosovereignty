@@ -1,0 +1,26 @@
+{
+  "name": "cryptosovereignty",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "npm run build:graph && vite",
+    "build": "npm run build:graph && vite build",
+    "preview": "vite preview",
+    "build:graph": "npx tsx scripts/build-graph.ts"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.3",
+    "@types/node": "^25.3.3",
+    "@types/three": "^0.183.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "d3": "^7.9.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^17.0.4",
+    "three": "^0.183.2"
+  }
+}

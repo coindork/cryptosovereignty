@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cryptosovereignty — Vora</title>
+  <meta name="description" content="An interactive constellation of philosophical essays on Bitcoin, sovereignty, and the clearing that cryptography opens." />
+  <meta property="og:title" content="Cryptosovereignty" />
+  <meta property="og:description" content="Veritas, non auctoritas, facit legem." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <div id="intro">
+    <div class="intro-content">
+      <h1 class="intro-title">Cryptosovereignty</h1>
+      <p class="intro-subtitle">A philosophical investigation</p>
+    </div>
+
+    <div class="intro-section" data-step="1">
+      <p><em>Auctoritas, non veritas, facit legem.</em> Authority, not truth, makes law. For four hundred years this was the ground of political order. Then in 2009, a pseudonymous cryptographer inverted it.</p>
+      <p><em>Veritas, non auctoritas, facit legem.</em> Truth, not authority, makes law. Not a slogan. A protocol.</p>
+    </div>
+
+    <div class="intro-section" data-step="2">
+      <p>These twenty-four essays trace what happened when mathematical proof replaced institutional authority as the ground of economic sovereignty. Not a technology review. Not a manifesto. A philosophical investigation into the structure of freedom that <em>cryptography</em> makes possible.</p>
+      <p>They do not form a line. They form a <em>constellation</em> — each essay a node, each connection a filament of shared argument.</p>
+    </div>
+
+    <div class="intro-section" data-step="3">
+      <p>Heidegger asked what technology reveals. Bitcoin answered. Schmitt asked who decides the exception. Satoshi made the question obsolete.</p>
+      <p>Hover any title to see its connections light up. Click to read the essay. The reading order on the right traces the argument — but every path through the constellation is valid.</p>
+    </div>
+
+    <div class="intro-scroll-hint">
+      <span class="scroll-arrow"></span>
+    </div>
+  </div>
+
+  <div id="cluster-nav">
+    <a class="cluster-label" href="https://coindork.github.io/mycelial-tree/">Chirality</a>
+    <span class="cluster-label" data-cluster="atlas">Atlas</span>
+    <span class="cluster-label active" data-cluster="cryptosovereignty">Cryptosovereignty</span>
+  </div>
+
+  <div id="graph-container"></div>
+
+  <div id="sidebar">
+    <div class="sidebar-inner">
+      <h3 class="sidebar-heading">Book Chapters</h3>
+      <div class="sidebar-list"></div>
+    </div>
+  </div>
+  <div id="essay-reader">
+    <button class="reader-close">&times;</button>
+    <div class="reader-content"></div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
