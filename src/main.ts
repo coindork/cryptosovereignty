@@ -3,7 +3,7 @@ import type { PositionedNode, GraphData } from '@vora/mycelial-engine'
 import { CRYPTO_CONFIG, GHOST_CONFIG, CHIRALITY_REMOTE_CONFIG } from './config'
 
 // Philosophical terms: essay link + glossary definition
-interface TermData { essay?: string; gloss?: string }
+interface TermData { essay?: string; gloss?: string; external?: string }
 const TERM_DATA: Record<string, TermData> = {
   'cryptosovereignty': { essay: '01-cryptosovereignty', gloss: 'The sovereign power of cryptography — legitimacy grounded in mathematical truth' },
   'veritas non auctoritas': { essay: '01-cryptosovereignty', gloss: 'Truth, not authority, makes law — the inversion of Hobbes' },
@@ -13,7 +13,7 @@ const TERM_DATA: Record<string, TermData> = {
   'leviathan': { essay: '07-the-sovereign-the-subject', gloss: "Hobbes' absolute sovereign — the political form Bitcoin replaces" },
   'partisan': { essay: '16-theory-of-the-crypto-partisan', gloss: 'The irregular fighter — the crypto-partisan operates in deterritorialized digital space' },
   'messianic': { essay: '12-messianic-bitcoin', gloss: "Benjamin's weak messianic power — the redemptive force hidden in Bitcoin" },
-  'eidgenossenschaft': { essay: 'ext-the-solitary-sovereign', gloss: 'Oath-fellowship — sovereign beings swearing mutual aid without surrendering sovereignty' },
+  'eidgenossenschaft': { essay: '03-the-new-form-of-power', gloss: 'Oath-fellowship — sovereign beings swearing mutual aid without surrendering sovereignty' },
   'sovereign mutualism': { essay: 'ext-sovereign-mutualism', gloss: 'Federation of sovereign clearings, each strengthened by every other' },
   'the clearing': { essay: 'ext-first-philosophy', gloss: "Heidegger's Lichtung — the space where truth presences" },
   'sovereign stack': { essay: 'ext-first-philosophy', gloss: 'Value \u2192 Communication \u2192 Cognition \u2192 Peoplehood — the four clearings' },
@@ -40,6 +40,27 @@ const TERM_DATA: Record<string, TermData> = {
   'the concept of the political': { essay: '10-the-concept-of-the-political' },
   'the pedagogy of bitcoin': { essay: '13-the-pedagogy-of-bitcoin' },
   'theory of the crypto partisan': { essay: '16-theory-of-the-crypto-partisan' },
+  // Additional essay title references
+  'the encrypted meaning of crypto': { essay: '02-the-encrypted-meaning-of-crypto' },
+  'the new form of power': { essay: '03-the-new-form-of-power' },
+  'crypto truth and power': { essay: '04-crypto-truth-and-power' },
+  'the political theology of crypto': { essay: '05-the-political-theology-of-crypto' },
+  'crypto without criticisms': { essay: '06-crypto-without-criticisms' },
+  'the sovereign and the subject': { essay: '07-the-sovereign-the-subject' },
+  'the theological conquest of money': { essay: '08-the-theological-conquest-of-money' },
+  'the legend of satoshi nakamoto': { essay: '09-the-legend-of-satoshi-nakamoto' },
+  'the oath of machines': { essay: '11-the-oath-of-machines' },
+  'messianic bitcoin': { essay: '12-messianic-bitcoin' },
+  'the political theology of bitcoin': { essay: '14-the-political-theology-of-bitcoin' },
+  'bitcoin and the state of emergency': { essay: '15-bitcoin-and-the-state-of-emergency' },
+  'to my crypto comrades': { essay: '17-to-my-crypto-comrades' },
+  'the hope of bitcoin': { essay: '18-the-hope-of-bitcoin' },
+  'bitcoin and the conquest of privacy': { essay: '19-bitcoin-and-the-conquest-of-privacy' },
+  // Cross-site: The Handiness of Being
+  'chirality': { external: 'https://coindork.github.io/mycelial-tree/', essay: 'chirality', gloss: 'Handedness — the irreducible asymmetry that makes encounter possible' },
+  'the handiness of being': { external: 'https://coindork.github.io/mycelial-tree/', essay: 'the-handedness-of-being', gloss: 'The Heidegger constellation — chirality, dwelling, and the encounter' },
+  'the handedness of being': { external: 'https://coindork.github.io/mycelial-tree/', essay: 'the-handedness-of-being' },
+  'the constellation': { external: 'https://coindork.github.io/mycelial-tree/', essay: 'the-constellation' },
 }
 
 function setupIntro(onComplete: () => void): void {
@@ -215,7 +236,11 @@ function linkifyTerms(container: Element): void {
 
       link.addEventListener('click', (e) => {
         e.preventDefault()
-        openEssay(essayId)
+        if (data.external) {
+          window.location.href = data.external + '#' + essayId
+        } else {
+          openEssay(essayId)
+        }
       })
 
       em.replaceWith(link)
