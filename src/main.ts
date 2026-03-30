@@ -235,6 +235,7 @@ async function runOpeningSequence(onComplete: () => void): Promise<void> {
   const newLaw = document.getElementById('new-law')!
   const glitchOverlay = document.getElementById('glitch-overlay')!
   const graphContainer = document.getElementById('graph-container')!
+  const leviathan = document.getElementById('leviathan')!
 
   graphContainer.style.opacity = '0'
   graphContainer.style.transition = 'opacity 1.5s ease'
@@ -280,6 +281,7 @@ async function runOpeningSequence(onComplete: () => void): Promise<void> {
   act1.classList.add('visible')
   await wait(400)
   oldLatin.classList.add('visible')
+  leviathan.classList.add('rising') // Specter materializes behind the words
   await typeInto(oldLatin, 'Auctoritas, non veritas, facit legem.', 55)
   await wait(500)
   oldTranslation.classList.add('visible')
@@ -287,6 +289,7 @@ async function runOpeningSequence(onComplete: () => void): Promise<void> {
   await wait(3000)
 
   // === THE GLITCH ===
+  leviathan.classList.add('shatter') // The old sovereign shatters
   oldLatin.classList.add('active')
   await wait(250)
   await glitchFlash(5, 70)
