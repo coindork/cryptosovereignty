@@ -640,4 +640,10 @@ async function init(): Promise<void> {
   })
 }
 
-init()
+init().catch(err => {
+  console.error('Initialization failed:', err)
+  const container = document.getElementById('graph-container')
+  if (container) {
+    container.innerHTML = '<p style="color:#888;padding:2rem;font-family:system-ui;">Could not load visualization. Please try refreshing the page.</p>'
+  }
+})
